@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europe Tour - OneWorld Vacation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        accent: {
+                            400: '#facc15',
+                            500: '#eab308',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <div
+                    class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-bold text-primary-800 leading-none">OneWorld</span>
+                    <span class="text-xs text-primary-600 font-medium tracking-widest uppercase">Vacation</span>
+                </div>
+            </a>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-gray-600 hover:text-primary-600 font-medium transition"
+                    data-i18n="nav_home">Home</a>
+                <!-- Dropdown: India (Mega Menu) -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-gray-600 hover:text-primary-600 font-medium transition">
+                        <span data-i18n="nav_india">India</span> <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div
+                        class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white rounded-xl shadow-xl border border-gray-100 p-6 grid grid-cols-4 gap-4">
+                        <div>
+                            <a href="india-north.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">North India</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="india-north.html#kashmir" class="hover:text-primary-600">Kashmir</a></li>
+                                <li><a href="india-north.html#himachal" class="hover:text-primary-600">Himachal
+                                        Pradesh</a></li>
+                                <li><a href="india-north.html#uttarakhand"
+                                        class="hover:text-primary-600">Uttarakhand</a></li>
+                                <li><a href="india-north.html#rajasthan" class="hover:text-primary-600">Rajasthan</a>
+                                </li>
+                                <li><a href="india-north.html#delhi-agra" class="hover:text-primary-600">Delhi &
+                                        Agra</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="india-south.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">South India</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="india-south.html#kerala" class="hover:text-primary-600">Kerala</a></li>
+                                <li><a href="india-south.html#tamil-nadu" class="hover:text-primary-600">Tamil Nadu</a>
+                                </li>
+                                <li><a href="india-south.html#karnataka" class="hover:text-primary-600">Karnataka</a>
+                                </li>
+                                <li><a href="india-south.html#andaman" class="hover:text-primary-600">Andaman</a></li>
+                                <li><a href="india-south.html#telangana" class="hover:text-primary-600">Telangana</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="india-east.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">East India</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="india-east.html#sikkim" class="hover:text-primary-600">Sikkim</a></li>
+                                <li><a href="india-east.html#darjeeling" class="hover:text-primary-600">Darjeeling</a>
+                                </li>
+                                <li><a href="india-east.html#kolkata" class="hover:text-primary-600">Kolkata</a></li>
+                                <li><a href="india-east.html#odisha" class="hover:text-primary-600">Odisha</a></li>
+                                <li><a href="india-east.html#northeast" class="hover:text-primary-600">North East</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="india-west.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">West India</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="india-west.html#goa" class="hover:text-primary-600">Goa</a></li>
+                                <li><a href="india-west.html#maharashtra" class="hover:text-primary-600">Maharashtra</a>
+                                </li>
+                                <li><a href="india-west.html#gujarat" class="hover:text-primary-600">Gujarat</a></li>
+                                <li><a href="india-west.html#daman-diu" class="hover:text-primary-600">Daman & Diu</a>
+                                </li>
+                                <li><a href="india-west.html#pune" class="hover:text-primary-600">Pune</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dropdown: World Tour (Mega Menu) -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-primary-600 font-bold transition">
+                        <span data-i18n="nav_world_tour">World Tour</span> <i
+                            class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div
+                        class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white rounded-xl shadow-xl border border-gray-100 p-6 grid grid-cols-4 gap-4">
+                        <div>
+                            <a href="asia-tour.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">Asia</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="asia-tour.html#thailand" class="hover:text-primary-600">Thailand</a></li>
+                                <li><a href="asia-tour.html#singapore" class="hover:text-primary-600">Singapore</a></li>
+                                <li><a href="asia-tour.html#malaysia" class="hover:text-primary-600">Malaysia</a></li>
+                                <li><a href="asia-tour.html#bali" class="hover:text-primary-600">Bali</a></li>
+                                <li><a href="asia-tour.html#vietnam" class="hover:text-primary-600">Vietnam</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="europe-tour.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">Europe</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="europe-tour.html#switzerland"
+                                        class="hover:text-primary-600">Switzerland</a></li>
+                                <li><a href="europe-tour.html#france" class="hover:text-primary-600">France</a></li>
+                                <li><a href="europe-tour.html#italy" class="hover:text-primary-600">Italy</a></li>
+                                <li><a href="europe-tour.html#spain" class="hover:text-primary-600">Spain</a></li>
+                                <li><a href="europe-tour.html#uk" class="hover:text-primary-600">UK</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="middle-east-tour.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">Middle East</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="middle-east-tour.html#dubai" class="hover:text-primary-600">Dubai</a></li>
+                                <li><a href="middle-east-tour.html#turkey" class="hover:text-primary-600">Turkey</a>
+                                </li>
+                                <li><a href="middle-east-tour.html#egypt" class="hover:text-primary-600">Egypt</a></li>
+                                <li><a href="middle-east-tour.html#jordan" class="hover:text-primary-600">Jordan</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="oceania-tour.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">Oceania</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="oceania-tour.html#australia" class="hover:text-primary-600">Australia</a>
+                                </li>
+                                <li><a href="oceania-tour.html#new-zealand" class="hover:text-primary-600">New
+                                        Zealand</a></li>
+                                <li><a href="oceania-tour.html#fiji" class="hover:text-primary-600">Fiji</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="educational-tour.html" class="text-gray-600 hover:text-primary-600 font-medium transition"
+                    data-i18n="nav_edu_tour">Educational Tour</a>
+                <a href="specialty-tour.html" class="text-gray-600 hover:text-primary-600 font-medium transition"
+                    data-i18n="nav_spec_tour">Specialty Tour</a>
+            </div>
+            <div class="hidden lg:flex items-center gap-4">
+                <div class="relative" id="language-selector">
+                    <div class="flex items-center gap-1 text-gray-600 cursor-pointer hover:text-primary-600">
+                        <i class="fa-solid fa-globe"></i>
+                        <span id="current-lang-display">English</span>
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </div>
+                    <div id="language-dropdown"
+                        class="hidden absolute top-full right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50">
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="en">English</a>
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="hi">Hindi</a>
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="ta">Tamil</a>
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="te">Telugu</a>
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="ml">Malayalam</a>
+                    </div>
+                </div>
+                <a href="#"
+                    class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg shadow-primary-500/30"
+                    data-i18n="nav_signin">Sign
+                    In</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-open" class="lg:hidden text-gray-600 text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="fixed inset-0 z-[60] bg-white transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-20 px-6 gap-6 overflow-y-auto">
+                <button id="mobile-menu-close" class="absolute top-6 right-6 text-gray-600 text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <a href="index.html" class="text-xl font-bold text-gray-800">Home</a>
+
+                <!-- Mobile Dropdown for India -->
+                <div class="flex flex-col gap-2">
+                    <button id="mobile-india-btn"
+                        class="flex justify-between items-center text-xl font-bold text-gray-800 w-full text-left">
+                        India <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"
+                            id="mobile-india-icon"></i>
+                    </button>
+                    <div id="mobile-india-menu" class="hidden flex-col gap-3 pl-4 mt-2 border-l-2 border-primary-100">
+                        <a href="india-north.html" class="text-gray-600 font-medium hover:text-primary-600">North
+                            India</a>
+                        <a href="india-south.html" class="text-gray-600 font-medium hover:text-primary-600">South
+                            India</a>
+                        <a href="india-east.html" class="text-gray-600 font-medium hover:text-primary-600">East
+                            India</a>
+                        <a href="india-west.html" class="text-gray-600 font-medium hover:text-primary-600">West
+                            India</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Dropdown for World Tour -->
+                <div class="flex flex-col gap-2">
+                    <button id="mobile-world-btn"
+                        class="flex justify-between items-center text-xl font-bold text-primary-600 w-full text-left">
+                        World Tour <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"
+                            id="mobile-world-icon"></i>
+                    </button>
+                    <div id="mobile-world-menu" class="hidden flex-col gap-3 pl-4 mt-2 border-l-2 border-primary-100">
+                        <a href="asia-tour.html" class="text-gray-600 font-medium hover:text-primary-600">Asia</a>
+                        <a href="europe-tour.html" class="text-gray-600 font-medium hover:text-primary-600">Europe</a>
+                        <a href="middle-east-tour.html" class="text-gray-600 font-medium hover:text-primary-600">Middle
+                            East</a>
+                        <a href="oceania-tour.html" class="text-gray-600 font-medium hover:text-primary-600">Oceania</a>
+                    </div>
+                </div>
+
+                <a href="educational-tour.html" class="text-xl font-bold text-gray-800">Educational Tour</a>
+                <a href="specialty-tour.html" class="text-xl font-bold text-gray-800">Specialty Tour</a>
+                <a href="#"
+                    class="bg-primary-600 text-white text-center py-3 rounded-full font-bold shadow-lg shadow-primary-500/30 mt-4">Sign
+                    In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1499856871940-a09627c6d7db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                alt="Europe Tour" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="relative z-10 container mx-auto px-6 text-center text-white mt-16">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-4 drop-shadow-lg" data-i18n="hero_europe_title">
+                Europe</h1>
+            <p class="text-xl max-w-2xl mx-auto drop-shadow-md" data-i18n="hero_europe_subtitle">History, art, and
+                romance around every corner.</p>
+        </div>
+    </header>
+
+    <!-- Content Sections -->
+    <main class="container mx-auto px-6 py-16 space-y-24">
+
+        <!-- Switzerland Section -->
+        <section id="switzerland" class="scroll-mt-28">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Switzerland"
+                            class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <span
+                                class="bg-primary-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Alpine
+                                Beauty</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">Switzerland</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Breathtaking landscapes, pristine lakes, and the majestic Alps. Switzerland is a paradise for
+                        nature lovers and adventure seekers.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-primary-600"></i> Jungfraujoch - Top of Europe</li>
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-primary-600"></i> Lake Lucerne Cruise</li>
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-primary-600"></i> Glacier Express Train</li>
+                    </ul>
+                    <button
+                        class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg">View
+                        Packages</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- France Section -->
+        <section id="france" class="scroll-mt-28">
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+                <div class="md:w-1/2">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="France"
+                            class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <span
+                                class="bg-primary-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Romantic
+                                Escape</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">France</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        From the iconic Eiffel Tower in Paris to the lavender fields of Provence. France captivates with
+                        its art, cuisine, and history.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-primary-600"></i> Eiffel Tower & Louvre Museum</li>
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-primary-600"></i> Palace of Versailles</li>
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-primary-600"></i> French Riviera Tour</li>
+                    </ul>
+                    <button
+                        class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg">View
+                        Packages</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Italy Section -->
+        <section id="italy" class="scroll-mt-28">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Italy"
+                            class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <span
+                                class="bg-primary-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Dolce
+                                Vita</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">Italy</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        A journey through time, from the Colosseum of Rome to the canals of Venice. Indulge in the
+                        world's best food and wine.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-primary-600"></i> Rome & Vatican City</li>
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-primary-600"></i> Venice Gondola Ride</li>
+                        <li class="flex items-center gap-3 text-gray-700"><i
+                                class="fa-solid fa-check text-primary-600"></i> Florence & Tuscany Wine Tour</li>
+                    </ul>
+                    <button
+                        class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-full font-bold transition shadow-lg">View
+                        Packages</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div
+                            class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-bold leading-none">OneWorld</span>
+                            <span class="text-xs text-gray-400 font-medium tracking-widest uppercase">Vacation</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-6">Making the world accessible, one journey at a time. Experience
+                        the difference with our premium tours.</p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links 1 -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="sect_top_dest">Top Destinations</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary-500 transition">Bali, Indonesia</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Pattaya, Thailand</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Maldives</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Switzerland</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Dubai, UAE</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 2 -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="footer_company">Company</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary-500 transition" data-i18n="footer_about">About Us</a>
+                        </li>
+                        <li><a href="#" class="hover:text-primary-500 transition" data-i18n="footer_careers">Careers</a>
+                        </li>
+                        <li><a href="#" class="hover:text-primary-500 transition" data-i18n="footer_blog">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition" data-i18n="footer_blog">Press</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition" data-i18n="footer_contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="footer_contact">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-primary-500"></i>
+                            <span>123 Travel Street, Adventure City, AC 12345</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-primary-500"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-primary-500"></i>
+                            <span>hello@oneworldvacation.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2024 OneWorld Vacation. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuOpen = document.getElementById('mobile-menu-open');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileIndiaBtn = document.getElementById('mobile-india-btn');
+        const mobileIndiaMenu = document.getElementById('mobile-india-menu');
+        const mobileIndiaIcon = document.getElementById('mobile-india-icon');
+        const mobileWorldBtn = document.getElementById('mobile-world-btn');
+        const mobileWorldMenu = document.getElementById('mobile-world-menu');
+        const mobileWorldIcon = document.getElementById('mobile-world-icon');
+
+        if (mobileMenuOpen && mobileMenuClose && mobileMenu) {
+            mobileMenuOpen.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        }
+
+        if (mobileIndiaBtn && mobileIndiaMenu && mobileIndiaIcon) {
+            mobileIndiaBtn.addEventListener('click', () => {
+                mobileIndiaMenu.classList.toggle('hidden');
+                mobileIndiaMenu.classList.toggle('flex');
+                mobileIndiaIcon.classList.toggle('rotate-180');
+            });
+        }
+
+        if (mobileWorldBtn && mobileWorldMenu && mobileWorldIcon) {
+            mobileWorldBtn.addEventListener('click', () => {
+                mobileWorldMenu.classList.toggle('hidden');
+                mobileWorldMenu.classList.toggle('flex');
+                mobileWorldIcon.classList.toggle('rotate-180');
+            });
+        }
+    </script>
+    <script src="js/translations.js"></script>
+    <script src="js/language-switcher.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneWorld Vacation - Premium Travel Experiences</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d', // Deep Green
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        accent: {
+                            400: '#facc15', // Gold
+                            500: '#eab308',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for things Tailwind doesn't cover easily */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+        }
+
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <!-- Placeholder Logo Icon -->
+                <div
+                    class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-bold text-primary-800 leading-none">OneWorld</span>
+                    <span class="text-xs text-primary-600 font-medium tracking-widest uppercase">Vacation</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#" class="text-gray-600 hover:text-primary-600 font-medium transition"
+                    data-i18n="nav_home">Home</a>
+                <!-- Dropdown: India (Mega Menu) -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-primary-600 font-medium transition">
+                        <span data-i18n="nav_india">India</span> <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div
+                        class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white rounded-xl shadow-xl border border-gray-100 p-6 grid grid-cols-4 gap-4">
+                        <div>
+                            <a href="india-north.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">North India</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="india-north.html#kashmir" class="hover:text-primary-600">Kashmir</a></li>
+                                <li><a href="india-north.html#himachal" class="hover:text-primary-600">Himachal
+                                        Pradesh</a></li>
+                                <li><a href="india-north.html#uttarakhand"
+                                        class="hover:text-primary-600">Uttarakhand</a></li>
+                                <li><a href="india-north.html#rajasthan" class="hover:text-primary-600">Rajasthan</a>
+                                </li>
+                                <li><a href="india-north.html#delhi-agra" class="hover:text-primary-600">Delhi &
+                                        Agra</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="india-south.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">South India</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="india-south.html#kerala" class="hover:text-primary-600">Kerala</a></li>
+                                <li><a href="india-south.html#tamil-nadu" class="hover:text-primary-600">Tamil Nadu</a>
+                                </li>
+                                <li><a href="india-south.html#karnataka" class="hover:text-primary-600">Karnataka</a>
+                                </li>
+                                <li><a href="india-south.html#andaman" class="hover:text-primary-600">Andaman</a></li>
+                                <li><a href="india-south.html#telangana" class="hover:text-primary-600">Telangana</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="india-east.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">East India</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="india-east.html#sikkim" class="hover:text-primary-600">Sikkim</a></li>
+                                <li><a href="india-east.html#darjeeling" class="hover:text-primary-600">Darjeeling</a>
+                                </li>
+                                <li><a href="india-east.html#kolkata" class="hover:text-primary-600">Kolkata</a></li>
+                                <li><a href="india-east.html#odisha" class="hover:text-primary-600">Odisha</a></li>
+                                <li><a href="india-east.html#northeast" class="hover:text-primary-600">North East</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="india-west.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">West India</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="india-west.html#goa" class="hover:text-primary-600">Goa</a></li>
+                                <li><a href="india-west.html#maharashtra" class="hover:text-primary-600">Maharashtra</a>
+                                </li>
+                                <li><a href="india-west.html#gujarat" class="hover:text-primary-600">Gujarat</a></li>
+                                <li><a href="india-west.html#daman-diu" class="hover:text-primary-600">Daman & Diu</a>
+                                </li>
+                                <li><a href="india-west.html#pune" class="hover:text-primary-600">Pune</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dropdown: World Tour (Mega Menu) -->
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 text-gray-600 group-hover:text-primary-600 font-medium transition">
+                        <span data-i18n="nav_world_tour">World Tour</span> <i
+                            class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div
+                        class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white rounded-xl shadow-xl border border-gray-100 p-6 grid grid-cols-4 gap-4">
+                        <div>
+                            <a href="asia-tour.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">Asia</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="asia-tour.html#thailand" class="hover:text-primary-600">Thailand</a></li>
+                                <li><a href="asia-tour.html#singapore" class="hover:text-primary-600">Singapore</a></li>
+                                <li><a href="asia-tour.html#malaysia" class="hover:text-primary-600">Malaysia</a></li>
+                                <li><a href="asia-tour.html#bali" class="hover:text-primary-600">Bali</a></li>
+                                <li><a href="asia-tour.html#vietnam" class="hover:text-primary-600">Vietnam</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="europe-tour.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">Europe</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="europe-tour.html#switzerland"
+                                        class="hover:text-primary-600">Switzerland</a></li>
+                                <li><a href="europe-tour.html#france" class="hover:text-primary-600">France</a></li>
+                                <li><a href="europe-tour.html#italy" class="hover:text-primary-600">Italy</a></li>
+                                <li><a href="europe-tour.html#spain" class="hover:text-primary-600">Spain</a></li>
+                                <li><a href="europe-tour.html#uk" class="hover:text-primary-600">UK</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="middle-east-tour.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">Middle East</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="middle-east-tour.html#dubai" class="hover:text-primary-600">Dubai</a></li>
+                                <li><a href="middle-east-tour.html#turkey" class="hover:text-primary-600">Turkey</a>
+                                </li>
+                                <li><a href="middle-east-tour.html#egypt" class="hover:text-primary-600">Egypt</a></li>
+                                <li><a href="middle-east-tour.html#jordan" class="hover:text-primary-600">Jordan</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="oceania-tour.html"
+                                class="font-bold text-primary-800 mb-2 hover:text-primary-600 block">Oceania</a>
+                            <ul class="space-y-1 text-sm text-gray-500">
+                                <li><a href="oceania-tour.html#australia" class="hover:text-primary-600">Australia</a>
+                                </li>
+                                <li><a href="oceania-tour.html#new-zealand" class="hover:text-primary-600">New
+                                        Zealand</a></li>
+                                <li><a href="oceania-tour.html#fiji" class="hover:text-primary-600">Fiji</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="educational-tour.html" class="text-gray-600 hover:text-primary-600 font-medium transition"
+                    data-i18n="nav_edu_tour">Educational Tour</a>
+                <a href="specialty-tour.html" class="text-gray-600 hover:text-primary-600 font-medium transition"
+                    data-i18n="nav_spec_tour">Specialty Tour</a>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="hidden lg:flex items-center gap-4">
+                <div class="relative" id="language-selector">
+                    <div class="flex items-center gap-1 text-gray-600 cursor-pointer hover:text-primary-600">
+                        <i class="fa-solid fa-globe"></i>
+                        <span id="current-lang-display">English</span>
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </div>
+                    <div id="language-dropdown"
+                        class="hidden absolute top-full right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50">
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="en">English</a>
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="hi">Hindi</a>
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="ta">Tamil</a>
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="te">Telugu</a>
+                        <a href="#" class="lang-option block px-4 py-2 hover:bg-gray-50 text-gray-700"
+                            data-lang="ml">Malayalam</a>
+                    </div>
+                </div>
+                <a href="#"
+                    class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg shadow-primary-500/30"
+                    data-i18n="nav_signin">
+                    Sign In
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-open" class="lg:hidden text-gray-600 text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Mobile Menu (Hidden by default) -->
+            <div id="mobile-menu"
+                class="fixed inset-0 z-[60] bg-white transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-20 px-6 gap-6 overflow-y-auto">
+                <button id="mobile-menu-close" class="absolute top-6 right-6 text-gray-600 text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <a href="index.html" class="text-xl font-bold text-gray-800">Home</a>
+
+                <!-- Mobile Dropdown for India -->
+                <div class="flex flex-col gap-2">
+                    <button id="mobile-india-btn"
+                        class="flex justify-between items-center text-xl font-bold text-gray-800 w-full text-left">
+                        India <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"
+                            id="mobile-india-icon"></i>
+                    </button>
+                    <div id="mobile-india-menu" class="hidden flex-col gap-3 pl-4 mt-2 border-l-2 border-primary-100">
+                        <a href="india-north.html" class="text-gray-600 font-medium hover:text-primary-600">North
+                            India</a>
+                        <a href="india-south.html" class="text-gray-600 font-medium hover:text-primary-600">South
+                            India</a>
+                        <a href="india-east.html" class="text-gray-600 font-medium hover:text-primary-600">East
+                            India</a>
+                        <a href="india-west.html" class="text-gray-600 font-medium hover:text-primary-600">West
+                            India</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Dropdown for World Tour -->
+                <div class="flex flex-col gap-2">
+                    <button id="mobile-world-btn"
+                        class="flex justify-between items-center text-xl font-bold text-gray-800 w-full text-left">
+                        World Tour <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"
+                            id="mobile-world-icon"></i>
+                    </button>
+                    <div id="mobile-world-menu" class="hidden flex-col gap-3 pl-4 mt-2 border-l-2 border-primary-100">
+                        <a href="asia-tour.html" class="text-gray-600 font-medium hover:text-primary-600">Asia</a>
+                        <a href="europe-tour.html" class="text-gray-600 font-medium hover:text-primary-600">Europe</a>
+                        <a href="middle-east-tour.html" class="text-gray-600 font-medium hover:text-primary-600">Middle
+                            East</a>
+                        <a href="oceania-tour.html" class="text-gray-600 font-medium hover:text-primary-600">Oceania</a>
+                    </div>
+                </div>
+                <a href="educational-tour.html" class="text-xl font-bold text-gray-800">Educational Tour</a>
+                <a href="specialty-tour.html" class="text-xl font-bold text-gray-800">Specialty Tour</a>
+                <a href="#"
+                    class="bg-primary-600 text-white text-center py-3 rounded-full font-bold shadow-lg shadow-primary-500/30 mt-4">Sign
+                    In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80"
+                alt="Travel Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-6 text-center text-white mt-16">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 drop-shadow-lg" data-i18n="hero_title">
+                Group Tours
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-gray-100 drop-shadow-md"
+                data-i18n="hero_subtitle">
+                Connect with like-minded travelers and experience the world together. Unforgettable journeys await.
+            </p>
+
+            <!-- Search Box -->
+            <div
+                class="bg-white p-4 rounded-2xl shadow-2xl max-w-4xl mx-auto flex flex-col md:flex-row gap-4 items-center">
+                <div class="flex-1 w-full md:w-auto border-b md:border-b-0 md:border-r border-gray-200 px-4 py-2">
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1"
+                        data-i18n="search_destination">Destination</label>
+                    <input type="text" placeholder="Where to?"
+                        class="w-full outline-none text-gray-800 font-medium placeholder-gray-400">
+                </div>
+                <div class="flex-1 w-full md:w-auto border-b md:border-b-0 md:border-r border-gray-200 px-4 py-2">
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1"
+                        data-i18n="search_date">Date</label>
+                    <input type="date" class="w-full outline-none text-gray-800 font-medium">
+                </div>
+                <div class="flex-1 w-full md:w-auto px-4 py-2">
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1"
+                        data-i18n="search_type">Type</label>
+                    <select class="w-full outline-none text-gray-800 font-medium bg-transparent">
+                        <option>Adventure</option>
+                        <option>Relaxation</option>
+                        <option>Cultural</option>
+                    </select>
+                </div>
+                <button
+                    class="w-full md:w-auto bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-bold transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-search"></i> <span data-i18n="search_btn">Search</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center group">
+                    <div
+                        class="w-16 h-16 mx-auto bg-green-50 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-4 group-hover:bg-primary-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="feat_destinations">700+ Destinations</h3>
+                    <p class="text-sm text-gray-500">Explore our wide range of destinations tailored for you.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="text-center group">
+                    <div
+                        class="w-16 h-16 mx-auto bg-green-50 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-4 group-hover:bg-primary-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-tag"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="feat_price">Best Price Guarantee</h3>
+                    <p class="text-sm text-gray-500">We offer the best prices for your dream vacation.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="text-center group">
+                    <div
+                        class="w-16 h-16 mx-auto bg-green-50 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-4 group-hover:bg-primary-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="feat_support">Top Notch Support</h3>
+                    <p class="text-sm text-gray-500">We are here to help you 24/7 with any questions.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="text-center group">
+                    <div
+                        class="w-16 h-16 mx-auto bg-green-50 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-4 group-hover:bg-primary-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="feat_partners">Trusted Partners</h3>
+                    <p class="text-sm text-gray-500">We work with the best in the industry to ensure quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Destinations -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-2" data-i18n="sect_top_dest">
+                        Top Destinations</h2>
+                    <p class="text-gray-500">For Your Next Vacation</p>
+                </div>
+                <div class="flex gap-2">
+                    <button
+                        class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition"><i
+                            class="fa-solid fa-arrow-left"></i></button>
+                    <button
+                        class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition"><i
+                            class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Bali" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-white text-2xl font-bold">Bali</h3>
+                        <p
+                            class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">
+                            Indonesia</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Pattaya" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-white text-2xl font-bold">Pattaya</h3>
+                        <p
+                            class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">
+                            Thailand</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1505993597083-3bd19fb75e57?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Scotland" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-white text-2xl font-bold">Scotland</h3>
+                        <p
+                            class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">
+                            United Kingdom</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1565967511849-76a60a516170?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Singapore"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-white text-2xl font-bold">Singapore</h3>
+                        <p
+                            class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">
+                            Asia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trip Ideas -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-8" data-i18n="sect_trip_ideas">Trip
+                Ideas To Inspire You</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Idea 1 -->
+                <div class="relative rounded-3xl overflow-hidden h-[400px] group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1573790387438-4da905039392?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition">
+                    </div>
+                    <div class="absolute inset-0 p-10 flex flex-col justify-center">
+                        <h3 class="text-3xl font-bold text-white mb-4">South Bali Bliss: Canggu, Uluwatu, Jimbaran</h3>
+                        <p class="text-gray-200 mb-6 max-w-md">Experience the perfect blend of culture, beaches, and
+                            luxury in the heart of Indonesia.</p>
+                        <button
+                            class="w-fit bg-white text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-primary-600 hover:text-white transition">View
+                            Details</button>
+                    </div>
+                </div>
+                <!-- Idea 2 -->
+                <div class="relative rounded-3xl overflow-hidden h-[400px] group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition">
+                    </div>
+                    <div class="absolute inset-0 p-10 flex flex-col justify-center">
+                        <h3 class="text-3xl font-bold text-white mb-4">Beyond the City</h3>
+                        <p class="text-gray-200 mb-6 max-w-md">Discover hidden gems and natural wonders just a short
+                            drive from the bustling metropolis.</p>
+                        <button
+                            class="w-fit bg-white text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-primary-600 hover:text-white transition">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Activities -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-12" data-i18n="sect_activities">
+                Popular Activities</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Activity 1 -->
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                            20% OFF</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 ml-1">(24 reviews)</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">Venice Grand Canal Tour</h3>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                            <i class="fa-regular fa-clock"></i> 2 Hours
+                            <span class="mx-1">•</span>
+                            <i class="fa-solid fa-location-dot"></i> Italy
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through">₹15000</span>
+                                <span class="text-lg font-bold text-primary-600">₹12000</span>
+                            </div>
+                            <button class="text-primary-600 font-medium hover:underline">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 2 -->
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                            15% OFF</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star-half-stroke"></i>
+                            <span class="text-gray-400 ml-1">(45 reviews)</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">Prague City Walking Tour</h3>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                            <i class="fa-regular fa-clock"></i> 4 Hours
+                            <span class="mx-1">•</span>
+                            <i class="fa-solid fa-location-dot"></i> Czech Republic
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                            <div>
+                                <span class="text-xs text-gray-400 line-through">₹8000</span>
+                                <span class="text-lg font-bold text-primary-600">₹6800</span>
+                            </div>
+                            <button class="text-primary-600 font-medium hover:underline">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 3 -->
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 ml-1">(12 reviews)</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">Taj Mahal Sunrise Tour</h3>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                            <i class="fa-regular fa-clock"></i> 6 Hours
+                            <span class="mx-1">•</span>
+                            <i class="fa-solid fa-location-dot"></i> India
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                            <div>
+                                <span class="text-lg font-bold text-primary-600">₹40005</span>
+                            </div>
+                            <button class="text-primary-600 font-medium hover:underline">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 4 -->
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                            HOT</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 ml-1">(88 reviews)</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">Swiss Alps Hiking</h3>
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                            <i class="fa-regular fa-clock"></i> 8 Hours
+                            <span class="mx-1">•</span>
+                            <i class="fa-solid fa-location-dot"></i> Switzerland
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                            <div>
+                                <span class="text-lg font-bold text-primary-600">₹20000</span>
+                            </div>
+                            <button class="text-primary-600 font-medium hover:underline">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="relative rounded-3xl overflow-hidden h-[400px] flex items-center">
+                <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+                    class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50"></div>
+                <div class="relative z-10 p-12 max-w-2xl">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+                        Adventure Awaits. Join Now!
+                    </h2>
+                    <p class="text-gray-200 text-lg mb-8">Unlock exclusive deals, personalized recommendations, and
+                        unforgettable experiences. Sign up today and start your journey.</p>
+                    <div class="flex gap-4">
+                        <input type="email" placeholder="Enter your email"
+                            class="px-6 py-3 rounded-full outline-none w-full max-w-xs text-gray-800">
+                        <button
+                            class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-full font-bold transition">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspiration Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900" data-i18n="sect_inspiration">
+                    Inspiration, Guides, Stories</h2>
+                <div class="flex gap-2">
+                    <button
+                        class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition"><i
+                            class="fa-solid fa-arrow-left"></i></button>
+                    <button
+                        class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition"><i
+                            class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Blog 1 -->
+                <article class="group cursor-pointer">
+                    <div class="rounded-2xl overflow-hidden mb-4 h-48">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Travel Tips</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2 group-hover:text-primary-600 transition">Top 10 Beaches to
+                        Visit in 2024</h3>
+                    <p class="text-gray-500 text-sm line-clamp-2">Discover the most pristine and beautiful beaches
+                        around the world that you must visit...</p>
+                </article>
+                <!-- Blog 2 -->
+                <article class="group cursor-pointer">
+                    <div class="rounded-2xl overflow-hidden mb-4 h-48">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Culture</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2 group-hover:text-primary-600 transition">Experiencing Local
+                        Culture in Kyoto</h3>
+                    <p class="text-gray-500 text-sm line-clamp-2">Immerse yourself in the traditions and customs of
+                        Japan's ancient capital.</p>
+                </article>
+                <!-- Blog 3 -->
+                <article class="group cursor-pointer">
+                    <div class="rounded-2xl overflow-hidden mb-4 h-48">
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Adventure</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2 group-hover:text-primary-600 transition">Hiking the Inca
+                        Trail: A Guide</h3>
+                    <p class="text-gray-500 text-sm line-clamp-2">Everything you need to know before embarking on the
+                        journey of a lifetime to Machu Picchu.</p>
+                </article>
+                <!-- Blog 4 -->
+                <article class="group cursor-pointer">
+                    <div class="rounded-2xl overflow-hidden mb-4 h-48">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Food</span>
+                    <h3 class="font-bold text-lg mt-2 mb-2 group-hover:text-primary-600 transition">Culinary Delights of
+                        Italy</h3>
+                    <p class="text-gray-500 text-sm line-clamp-2">A gastronomic tour through the regions of Italy, from
+                        pizza in Naples to pasta in Rome.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-12" data-i18n="sect_testimonials">What
+                our clients say</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg"
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                            <p class="text-xs text-gray-500">Traveler</p>
+                        </div>
+                        <i class="fa-solid fa-quote-right ml-auto text-gray-200 text-4xl"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"OneWorld Vacation planned the perfect honeymoon for us. Everything
+                        was seamless and the hotels were amazing!"</p>
+                    <div class="flex text-yellow-400 text-xs mt-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Michael Chen</h4>
+                            <p class="text-xs text-gray-500">Adventure Seeker</p>
+                        </div>
+                        <i class="fa-solid fa-quote-right ml-auto text-gray-200 text-4xl"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"The group tour to Thailand was incredible. I made new friends and
+                        saw places I never would have found on my own."</p>
+                    <div class="flex text-yellow-400 text-xs mt-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg"
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Emily Davis</h4>
+                            <p class="text-xs text-gray-500">Family Vacation</p>
+                        </div>
+                        <i class="fa-solid fa-quote-right ml-auto text-gray-200 text-4xl"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"Highly recommend! The support team was so helpful when our flight
+                        got delayed. Truly top notch service."</p>
+                    <div class="flex text-yellow-400 text-xs mt-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <a href="#" class="flex items-center gap-2 mb-6">
+                        <div
+                            class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-bold leading-none">OneWorld</span>
+                            <span class="text-xs text-gray-400 font-medium tracking-widest uppercase">Vacation</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-6">Making the world accessible, one journey at a time. Experience
+                        the difference with our premium tours.</p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links 1 -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="sect_top_dest">Top Destinations</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary-500 transition">Bali, Indonesia</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Pattaya, Thailand</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Maldives</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Switzerland</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Dubai, UAE</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 2 -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="footer_company">Company</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary-500 transition" data-i18n="footer_about">About Us</a>
+                        </li>
+                        <li><a href="#" class="hover:text-primary-500 transition" data-i18n="footer_careers">Careers</a>
+                        </li>
+                        <li><a href="#" class="hover:text-primary-500 transition" data-i18n="footer_blog">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Press</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="footer_contact">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-primary-500"></i>
+                            <span>123 Travel Street, Adventure City, AC 12345</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-primary-500"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-primary-500"></i>
+                            <span>hello@oneworldvacation.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2024 OneWorld Vacation. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuOpen = document.getElementById('mobile-menu-open');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileIndiaBtn = document.getElementById('mobile-india-btn');
+        const mobileIndiaMenu = document.getElementById('mobile-india-menu');
+        const mobileIndiaIcon = document.getElementById('mobile-india-icon');
+        const mobileWorldBtn = document.getElementById('mobile-world-btn');
+        const mobileWorldMenu = document.getElementById('mobile-world-menu');
+        const mobileWorldIcon = document.getElementById('mobile-world-icon');
+
+        if (mobileMenuOpen && mobileMenuClose && mobileMenu) {
+            mobileMenuOpen.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        }
+
+        if (mobileIndiaBtn && mobileIndiaMenu && mobileIndiaIcon) {
+            mobileIndiaBtn.addEventListener('click', () => {
+                mobileIndiaMenu.classList.toggle('hidden');
+                mobileIndiaMenu.classList.toggle('flex');
+                mobileIndiaIcon.classList.toggle('rotate-180');
+            });
+        }
+
+        if (mobileWorldBtn && mobileWorldMenu && mobileWorldIcon) {
+            mobileWorldBtn.addEventListener('click', () => {
+                mobileWorldMenu.classList.toggle('hidden');
+                mobileWorldMenu.classList.toggle('flex');
+                mobileWorldIcon.classList.toggle('rotate-180');
+            });
+        }
+    </script>
+    <script src="js/translations.js"></script>
+    <script src="js/language-switcher.js"></script>
+</body>
+
+</html>
